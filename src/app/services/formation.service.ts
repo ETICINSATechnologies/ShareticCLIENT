@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import {of} from "rxjs/observable/of";
+import { Observable } from 'rxjs/Observable';
+import {of} from 'rxjs/observable/of';
 
 import { Formation } from '../objects/formation';
 
@@ -24,7 +24,7 @@ export class FormationService {
    */
   getListFormations(): Observable<Formation[]> {
     return this.http.get<Formation[]>(this.formationsUrl).pipe(
-      catchError(this.handleError('getListFormations',[]))
+      catchError(this.handleError('getListFormations', []))
       );
   }
 
