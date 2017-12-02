@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ETICINSATechnologies/ShareticCLIENT.svg?branch=master)](https://travis-ci.org/ETICINSATechnologies/ShareticCLIENT)
+
 # Sharetic
 An online open source formation platform (MOOC-like) for Junior-Enterprises.
 
