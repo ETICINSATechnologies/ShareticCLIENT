@@ -1,9 +1,17 @@
-# Plateforme-Formation
+# Sharetic
 An online open source formation platform (MOOC-like) for Junior-Enterprises.
 
-**Frontend** : Angular (Typescript/Javascript framework)
+**Frontend** : Angular 4 (Typescript/Javascript framework)
 
-**Backend** : Symfony (PHP framework)
+**Backend** : Symfony 2 (PHP framework)
+
+## Structure
+
+This project is splitted into two repositories (Frontend and Backend) :
+- This repo (**ShareticCLIENT**) contains the source code of the Angular application.
+- The repo [**ShareticREST**](https://github.com/ETICINSATechnologies/ShareticREST) contains the source code of the Symfony application (as a RESTful API).
+
+They can be deployed to two different servers, just edit the config files if needed.
 
 ## ETIC INSA Technologies
 This project is initiated by the Computer and Information Systems team of INSA Lyon's Junior-Enterprise.
@@ -20,13 +28,6 @@ This project is initiated by the Computer and Information Systems team of INSA L
 **2016-17**
 
 Marc Fallouh, Sacha Barkat, Jindun Shao, Anis Hamroun, Justin Gally - ETIC INSA Technologies
-
-## Structure
-The folder **formationCLIENT** contains the source code of the Angular application.
-
-The folder **formationREST** contains the source code of the Symfony application (as a RESTful API).
-
-These two applications can be deployed into two different servers, just edit the config files if needed.
 
 ## Get started
 
