@@ -13,7 +13,7 @@ This project is splitted into two repositories (Frontend and Backend) :
 - This repo (**ShareticCLIENT**) contains the source code of the Angular application.
 - The repo [**ShareticREST**](https://github.com/ETICINSATechnologies/ShareticREST) contains the source code of the Symfony application (as a RESTful API).
 
-They can be deployed to two different servers, just edit the config files if needed.
+They can be deployed on two different servers, just edit the config files if needed.
 
 ## ETIC INSA Technologies
 This project is initiated by the Computer and Information Systems team of INSA Lyon's Junior-Enterprise.
@@ -54,7 +54,17 @@ $ ng serve --open
 It will launch the server, watch your files, and rebuild the app as you make changes to those files.
 
 ### Backend
-WORK IN PROGRESS
-
+- Install [Composer](https://getcomposer.org/)
+- Install PHP 7
+- Install a MySQL/MariaDB server and launch it
+- Open a terminale in the folder **shareticREST**
+- Install all the dependencies by running the following Composer command:
+```
+$ composer install
+```
+- If everything went fine you can now start the application:
+```
+$ php app/console server:run
+```
 ### To finish
 Please write all your code and comments in english !
