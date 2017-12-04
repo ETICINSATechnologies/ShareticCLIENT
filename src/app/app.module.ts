@@ -24,7 +24,8 @@ import { LoginComponent } from './components/login/login.component';
     SuiModule,
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
-      {path: 'formations', component: FormationsComponent}
+      {path: 'formations', component: FormationsComponent},
+      {path: 'login', component: LoginComponent}
     ]),
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
