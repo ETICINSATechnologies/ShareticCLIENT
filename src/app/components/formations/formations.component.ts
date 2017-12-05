@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Formation } from '../../objects/formation';
+import { Formation } from '../../entities/formation';
 import { FormationService } from '../../services/formation.service';
 
 @Component({

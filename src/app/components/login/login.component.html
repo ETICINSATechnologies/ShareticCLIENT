@@ -1,16 +1,33 @@
-<form class="ui large form" >
-  <div class="ui segment" style="width: 20%; margin-left: auto;  margin-right: auto; background-color: dimgrey">
-    <div class="field">
-      <div class="ui left icon input">
-        <input type="text" name="email" placeholder="E-mail address">
+<div class="ui middle aligned center aligned grid" style="min-height: 100%;">
+  <div class="grey border wide mobile ten wide tablet four wide large screen four wide computer column" style="border-radius: 25px;
+      border: 2px solid black;">
+    <h2 class="ui green image header">
+      <img src="assets/logo-etic.png" class="image">
+      <div class="content">
+        Bienvenue sur Sharetic
       </div>
-    </div>
-    <div class="field">
-      <div class="ui left icon input">
-        <input type="password" name="password" placeholder="Password">
+    </h2>
+    <form class="ui large form">
+      <div class="ui segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="email" placeholder="E-mail address" [(ngModel)]="identifiants.username">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="identifiants.password">
+          </div>
+        </div>
+        <div class="ui fluid large green submit button" (click)="login()">Se connecter</div>
       </div>
+    </form>
+
+    <div class="ui message">
+      Mot de passe oublié ? <a href="#">Clique ici</a>
     </div>
-    <div class="ui fluid large green submit button">Se connecter</div>
   </div>
-</form>
+</div>
 

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {SuiModule} from 'ng2-semantic-ui';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,10 +23,11 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     BrowserModule,
     SuiModule,
+    FormsModule,
     RouterModule.forRoot([
-      {path: 'home', component: HomeComponent},
-      {path: 'formations', component: FormationsComponent},
-      {path: 'login', component: LoginComponent}
+      {path: 'home', component: HomeComponent, pathMatch: 'full'},
+      {path: 'formations', component: FormationsComponent, pathMatch: 'full'},
+      {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
