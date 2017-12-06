@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginID} from '../../entities/loginID';
+import {LoginService} from '../../services/login.service';
 
 
 @Component({
@@ -11,5 +12,7 @@ export class LoginComponent {
 
   identifiants: LoginID = new LoginID('', '');
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
+
+
 }
