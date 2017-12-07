@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Formation } from '../../entities/formation';
 import { FormationService } from '../../services/formation.service';
+import {AuthService} from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-formations',
@@ -11,9 +13,10 @@ import { FormationService } from '../../services/formation.service';
 export class FormationsComponent implements OnInit {
   formations: Formation[];
 
-  constructor(private formationService: FormationService ) { }
+  constructor(private formationService: FormationService, private authService: AuthService ) { }
 
   ngOnInit() {
+    console.log(this.authService.isLogged());
     this.getListFormations();
   }
 

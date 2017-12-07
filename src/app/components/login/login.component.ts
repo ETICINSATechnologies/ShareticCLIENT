@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginID} from '../../entities/loginID';
 import {LoginService} from '../../services/login.service';
+import { Router } from '@angular/router';
+
+
 
 
 @Component({
@@ -12,7 +15,14 @@ export class LoginComponent {
 
   identifiants: LoginID = new LoginID('', '');
 
-  constructor(private loginService: LoginService) { }
+  constructor(private router: Router, private loginService: LoginService) {}
 
+  login() {
+    this.loginService.login(this.identifiants)
+      .then(res => {
+        this.router.navigate(['/formations']);
+      })
+      .catch();
+  }
 
 }
