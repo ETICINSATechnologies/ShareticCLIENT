@@ -15,7 +15,10 @@ install:
 
 script:
 - ng lint
-- npm test
+- ng test
+
+after_success:
+- npm run codecov
 
 addons:
   chrome: stable
