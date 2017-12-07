@@ -15,7 +15,10 @@ install:
 
 script:
 - ng lint
-- ng test --watch=false
+- nnpm test
+
+addons:
+  chrome: stable
 
 notifications:
   email: false
