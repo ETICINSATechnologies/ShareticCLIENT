@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormationsComponent } from './formations.component';
+import {FormationService} from '../../services/formation.service';
+import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from '../../services/auth.service';
 
 describe('FormationsComponent', () => {
   let component: FormationsComponent;
@@ -8,7 +11,9 @@ describe('FormationsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormationsComponent ]
+      declarations: [ FormationsComponent ],
+      providers: [FormationService, AuthService],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));

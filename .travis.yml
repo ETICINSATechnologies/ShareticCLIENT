@@ -8,13 +8,20 @@ cache:
     - "node_modules"
 
 install:
-- npm install -g angular-cli
+- npm install -g @angular/cli
 - npm install -g karma
 - npm install
 - ng build
 
 script:
 - ng lint
+- ng test --watch false
+
+after_success:
+- npm run codecov
+
+addons:
+  chrome: stable
 
 notifications:
   email: false
