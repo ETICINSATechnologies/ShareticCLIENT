@@ -15,10 +15,10 @@ install:
 
 script:
 - ng lint
-- ng test --watch false
+- ng test -cc --watch false
 
 after_success:
-- npm run codecov
+- bash <(curl -s https://codecov.io/bash)
 
 addons:
   chrome: stable
