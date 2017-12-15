@@ -22,6 +22,9 @@ export class LoginComponent {
       .then(res => {
         this.router.navigate(['/home']);
       })
-      .catch();
+      .catch(res => {
+        /** While no backend **/
+        this.router.navigate(['/home']);
+      });
   }
 }
