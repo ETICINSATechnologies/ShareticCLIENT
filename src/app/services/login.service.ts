@@ -21,11 +21,17 @@ export class LoginService {
         '&' + 'password=' + identifiants.password)
       .toPromise()
       .then(res => {
-         this.authService.setAccessToken(res.json().access_token);
+        this.authService.setAccessToken(res.json().access_token);
         this.authService.setTokenType('Bearer');
         this.authService.setLogged(true);
       })
       .catch(this.handleError);
+  }
+
+  logout() {
+    this.authService.setAccessToken(null);
+    this.authService.setTokenType(null);
+    this.authService.setLogged(false);
   }
 
   private handleError(error: any): Promise<any> {
