@@ -4,20 +4,7 @@
 
 </head>
 <body>
-<div class="ui inverted menu navbar">
-  <a routerLink="/home" class="item" >
-    <div class="image">
-      <img src="../assets/logo-etic.png" width="25px" height="25px" style="margin-left: -10px; margin-right: 10px">
-    </div>
-    {{title}}
-  </a>
-  <a routerLink="/formations" class="item">
-    Formations
-  </a>
-  <div class="right menu">
-    <a routerLink="/login" class="item">Se connecter</a>
-  </div>
-</div>
+<app-navbar></app-navbar>
 <router-outlet></router-outlet>
 </body>
 </html>
