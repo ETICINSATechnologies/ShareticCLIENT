@@ -30,7 +30,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     SuiModule,
     FormsModule,
     RouterModule.forRoot([
-      {path: 'home', component: HomeComponent, pathMatch: 'full'},
+      {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
