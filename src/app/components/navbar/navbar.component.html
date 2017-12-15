@@ -9,6 +9,14 @@
     Formations
   </a>
   <div class="right menu">
-
+    <a class="item ui dropdown" suiDropdown [(isOpen)]="isOpen" [isDisabled]="isDisabled">
+        Vincent
+        <i class="dropdown icon"></i>
+        <div class="menu" suiDropdownMenu>
+          <div class="item">Profile</div>
+          <div class="item">Badges</div>
+          <div class="item">Logout</div>
+        </div>
+    </a>
   </div>
 </div>
