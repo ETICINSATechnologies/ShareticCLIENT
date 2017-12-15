@@ -34,6 +34,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
     HttpClientModule,
