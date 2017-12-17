@@ -20,9 +20,11 @@ export class LoginComponent {
   login() {
     this.loginService.login(this.identifiants)
       .then(res => {
-        this.router.navigate(['/formations']);
+        this.router.navigate(['/home']);
       })
-      .catch();
+      .catch(res => {
+        /** While no backend **/
+        this.router.navigate(['/home']);
+      });
   }
-
 }

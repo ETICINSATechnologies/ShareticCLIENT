@@ -15,21 +15,26 @@ import { FormationService } from './services/formation.service';
 import { AuthGuard } from './services/auth.guard';
 import {LoginService} from './services/login.service';
 import {AuthService} from './services/auth.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormationsComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     SuiModule,
     FormsModule,
     RouterModule.forRoot([
-      {path: 'home', component: HomeComponent, pathMatch: 'full'},
+      {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
     HttpClientModule,
