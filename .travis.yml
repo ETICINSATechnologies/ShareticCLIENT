@@ -8,10 +8,7 @@ cache:
     - "node_modules"
 
 install:
-- npm install -g @angular/cli
-- npm install -g karma
 - npm install
-- ng build
 
 script:
 - ng lint
