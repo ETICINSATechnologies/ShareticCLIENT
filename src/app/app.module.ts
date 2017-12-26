@@ -36,6 +36,7 @@ import { AddFormationComponent } from './components/add-formation/add-formation.
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'addFormation', component: AddFormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
