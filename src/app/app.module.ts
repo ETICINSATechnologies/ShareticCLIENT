@@ -17,6 +17,7 @@ import {LoginService} from './services/login.service';
 import {AuthService} from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AddFormationComponent } from './components/add-formation/add-formation.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddFormationComponent
   ],
   imports: [
     BrowserModule,
