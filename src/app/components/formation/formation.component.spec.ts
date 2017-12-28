@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SuiRatingModule } from 'ng2-semantic-ui';
+import { FormsModule } from '@angular/forms';
 
 import { FormationComponent } from './formation.component';
+import {FormationService} from '../../services/formation.service';
+import {AuthService} from '../../services/auth.service';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
+
 
 describe('FormationComponent', () => {
   let component: FormationComponent;
@@ -8,7 +15,9 @@ describe('FormationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormationComponent ]
+      declarations: [ FormationComponent ],
+      imports: [ SuiRatingModule, FormsModule, HttpClientModule, RouterTestingModule],
+      providers: [ FormationService, AuthService]
     })
     .compileComponents();
   }));
