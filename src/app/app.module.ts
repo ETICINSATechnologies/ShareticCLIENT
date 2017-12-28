@@ -9,6 +9,7 @@ import { InMemoryFormationDataService } from './in_memory_data/InMemoryFormation
 
 import { AppComponent } from './app.component';
 import { FormationsComponent } from './components/formations/formations.component';
+import { FormationComponent } from './components/formation/formation.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationService } from './services/formation.service';
@@ -25,7 +26,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    FormationComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'formation/:id', component: FormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
