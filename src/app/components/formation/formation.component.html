@@ -1,0 +1,39 @@
+<h1>{{formation.name}}</h1>
+<table class="ui celled padded table">
+    <thead>
+    <tr>
+        <th class="single line">Chapitres</th>
+        <th>Accèder aux QCM</th>
+        <th>Difficulté</th>
+        <th>Editer/supprimer</th>
+        <th>Resume du chapitre</th>
+    </tr></thead>
+    <tbody>
+    <tr *ngFor="let formationDetail of formationDetails">
+        <td>
+            <h2 class="ui center aligned header">{{formationDetail.name}}</h2>
+        </td>
+        <td class="single line">
+            QCM
+        </td>
+        <td>
+            <div class="ui star rating" data-rating={{formationDetails.rating}} data-max-rating="5"></div>
+        </td>
+        <td class="right aligned">
+            <a routerlink="editFormation"><img src="iconEdit.png"/></a> <!-- Mettre un lien de redirection vers les pages en questions-->
+            <a href=""><img src="iconDelete.jpg"/></a>
+        </td>
+        <td>Petite Description ou début de la description du chapitre en question <!-- {{Chapitre.content}} --></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="ui buttons">
+    <button (click)="goBack()" class="ui labeled icon button active">
+        <i class="left chevron icon"></i>
+        Précédent
+    </button>
+</div>
+<p>
+  formation works!
+</p>
