@@ -17,7 +17,7 @@
             QCM
         </td>
         <td>
-            <div class="ui star rating" data-rating={{formationDetails.rating}} data-max-rating="5"></div>
+          <sui-rating class="star" [ngModel]=formationDetails.rating [maximum]="5"></sui-rating>
         </td>
         <td class="right aligned">
             <a routerlink="editFormation"><img src="iconEdit.png"/></a> <!-- Mettre un lien de redirection vers les pages en questions-->
