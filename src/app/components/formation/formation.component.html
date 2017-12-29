@@ -1,4 +1,7 @@
-<h1>{{formation.name}}</h1>
+<img src="formationDetails.icon" /><h1>ANGULAR{{formationDetails.name}}</h1>
+<div class="ui grid">
+    <div class="twelve wide column">ANGULAR WORKS</div>
+</div>
 <table class="ui celled padded table">
     <thead>
     <tr>
@@ -17,23 +20,34 @@
             QCM
         </td>
         <td>
-          <sui-rating class="star" [ngModel]=formationDetails.rating [maximum]="5"></sui-rating>
+          <sui-rating class="star" [ngModel]="rating" [maximum]="5"></sui-rating>
         </td>
         <td class="right aligned">
             <a routerlink="editFormation"><img src="iconEdit.png"/></a> <!-- Mettre un lien de redirection vers les pages en questions-->
             <a href=""><img src="iconDelete.jpg"/></a>
         </td>
-        <td>Petite Description ou début de la description du chapitre en question <!-- {{Chapitre.content}} --></td>
+        <td>Petite Description ou début de la description du chapitre en question <!-- {{Chapter.content}} --></td>
     </tr>
     </tbody>
 </table>
 
-<div class="ui buttons">
-    <button (click)="goBack()" class="ui labeled icon button active">
-        <i class="left chevron icon"></i>
-        Précédent
-    </button>
+
+<div class="ui grid">
+    <div class="four column row">
+        <div class="left floated column"></div>
+            <div class="ui buttons">
+                <button (click)="goBack()" class="ui labeled icon button active" class="ui left floated button">
+                    <i class="left chevron icon"></i>
+                    Précédent
+                </button>
+            </div>
+        </div>
+        <div class="right floated column">
+            <div class="ui buttons">
+                <button (click)="addNewChapter()" class="positive ui button">
+                    Ajouter
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-  formation works!
-</p>

@@ -11,7 +11,6 @@ import { Location } from '@angular/common';
   styleUrls: ['./formation.component.css']
 })
 export class FormationComponent implements OnInit {
-    formationName;
     formationDetails: FormationDetails[];
 
   constructor(private formationService: FormationService, private authService: AuthService, private route: ActivatedRoute,
@@ -25,6 +24,8 @@ export class FormationComponent implements OnInit {
     getFormation(): void {
         const id = +this.route.snapshot.paramMap.get('id');
         // this.formationService.getFormation(id).subscribe(formation => this.formationDetails = formationDetails);
+    }
+    addNewChapter(): void {
     }
 
     goBack(): void {

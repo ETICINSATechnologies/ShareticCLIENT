@@ -18,6 +18,7 @@ import {LoginService} from './services/login.service';
 import {AuthService} from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ChapitreComponent } from './components/chapitre/chapitre.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     NavbarComponent,
     ProfileComponent,
-    FormationComponent
+    FormationComponent,
+    ChapitreComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { ProfileComponent } from './components/profile/profile.component';
       {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formation/:id', component: FormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'chapitre/:id', component: ChapitreComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
