@@ -18,6 +18,7 @@ import {LoginService} from './services/login.service';
 import {AuthService} from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AddFormationComponent } from './components/add-formation/add-formation.component';
 import { ChapitreComponent } from './components/chapitre/chapitre.component';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ChapitreComponent } from './components/chapitre/chapitre.component';
     LoginComponent,
     NavbarComponent,
     ProfileComponent,
+    AddFormationComponent
     FormationComponent,
     ChapitreComponent
   ],
@@ -38,6 +40,7 @@ import { ChapitreComponent } from './components/chapitre/chapitre.component';
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'addFormation', component: AddFormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formation/:id', component: FormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'chapitre/:id', component: ChapitreComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
