@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from '../../services/auth.service';
 import {Formation} from '../../entities/formation';
 import { of } from 'rxjs/observable/of';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('FormationsComponent', () => {
   let component: FormationsComponent;
@@ -16,7 +17,7 @@ describe('FormationsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ FormationsComponent ],
       providers: [FormationService, AuthService],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule, RouterTestingModule]
     })
     .compileComponents();
   }));

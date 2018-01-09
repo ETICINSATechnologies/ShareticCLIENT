@@ -9,6 +9,7 @@ import { InMemoryFormationDataService } from './in_memory_data/InMemoryFormation
 
 import { AppComponent } from './app.component';
 import { FormationsComponent } from './components/formations/formations.component';
+import { FormationComponent } from './components/formation/formation.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationService } from './services/formation.service';
@@ -18,6 +19,7 @@ import {AuthService} from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormationComponent } from './components/add-formation/add-formation.component';
+import { ChapitreComponent } from './components/chapitre/chapitre.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { AddFormationComponent } from './components/add-formation/add-formation.
     NavbarComponent,
     ProfileComponent,
     AddFormationComponent
+    FormationComponent,
+    ChapitreComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,8 @@ import { AddFormationComponent } from './components/add-formation/add-formation.
       {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'addFormation', component: AddFormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'formation/:id', component: FormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'chapitre/:id', component: ChapitreComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),

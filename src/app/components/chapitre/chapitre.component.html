@@ -1,0 +1,27 @@
+<img src={{formationIcon}}/><h1>{{formationName}}</h1>
+<h2>PRESENTATION<!--{{chapter.title}}--></h2>
+<div class="ui two column centered grid">
+  <div class="column">
+    <!--{{chapter.content}}-->
+  </div>
+</div>
+
+<div class="ui grid">
+  <div class="four column row">
+    <div class="left floated column">
+      <div class="ui buttons">
+        <button (click)="goBack()" class="ui labeled icon button active" class="ui left floated button">
+          <i class="left chevron icon"></i>
+          Précédent
+        </button>
+      </div>
+    </div>
+    <div class="right floated column">
+      <div class="ui buttons">
+        <button (click)="validerChapitre()" class="positive ui button">
+          Valider
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
