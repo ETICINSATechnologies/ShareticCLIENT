@@ -5,7 +5,7 @@ import {Chapter} from '../../entities/chapter';
 import {Formation} from '../../entities/formation';
 import {AuthService} from '../../services/auth.service';
 import { Location } from '@angular/common';
-import {Formation} from "../../entities/formation";
+
 
 @Component({
   selector: 'app-chapitre',
