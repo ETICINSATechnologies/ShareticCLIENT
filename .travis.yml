@@ -19,7 +19,7 @@ after_success:
 - bash <(curl -s https://codecov.io/bash)
 
 addons:
-  chrome: stable, no-sandbox
+  chrome: stable
 
 notifications:
   email: false
