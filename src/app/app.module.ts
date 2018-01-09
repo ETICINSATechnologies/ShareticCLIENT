@@ -29,7 +29,7 @@ import { ChapitreComponent } from './components/chapitre/chapitre.component';
     LoginComponent,
     NavbarComponent,
     ProfileComponent,
-    AddFormationComponent
+    AddFormationComponent,
     FormationComponent,
     ChapitreComponent
   ],
