@@ -1,0 +1,52 @@
+<img src={{formationIcon}}/><h1>{{formationName}}</h1>
+<div class="ui grid">
+    <div class="twelve wide column">ANGULAR WORKS</div>
+</div>
+<table class="ui celled padded table">
+    <thead>
+        <tr>
+            <th class="single line">Chapitre</th>
+            <th>Accèder aux QCM</th>
+            <th>Difficulté</th>
+            <th>Resume du chapitre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let formationDetail of formationDetails">
+            <td>
+                <a routerLink="../chapter/{{formationDetails.id}}">
+                    <h2 class="ui center aligned header">{{formationDetail.name}}</h2>
+                </a>
+            </td>
+            <td class="single line">
+                QCM
+            </td>
+            <td>
+              <sui-rating class="star" [ngModel]="rating" [maximum]="5"></sui-rating>
+            </td>
+            <td>
+                Petite Description ou début de la description du chapitre en question <!-- {{formationDetails.content}} -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="ui grid">
+    <div class="four column row">
+        <div class="left floated column">
+            <div class="ui buttons">
+                <button (click)="goBack()" class="ui left floated button">
+                    <i class="left chevron icon"></i>
+                    Précédent
+                </button>
+            </div>
+    </div>
+      <div class="right floated column">
+        <div class="ui buttons">
+          <button (click)="addNewChapter()" class="positive ui button">
+            Ajouter
+          </button>
+        </div>
+      </div>
+</div>
