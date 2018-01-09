@@ -13,7 +13,6 @@ import { Location } from '@angular/common';
 })
 export class ChapitreComponent implements OnInit {
 
-    chapter: Chapter[];
     formations: Formation[];
     formationName: string;
     formationIcon: string;
@@ -26,8 +25,8 @@ export class ChapitreComponent implements OnInit {
         const id = +this.route.snapshot.paramMap.get('id');
         this.getChapter(id);
         this.getListFormations(id);
-        this.formationName = this.formations[id].name;
-        this.formationIcon = this.formations[id].icon;
+        // this.formationName = this.formations[id].name;
+        // this.formationIcon = this.formations[id].icon;
     }
 
     getChapter(id: number): void {
@@ -35,7 +34,7 @@ export class ChapitreComponent implements OnInit {
     }
 
     getListFormations(id: number): void {
-        this.formationService.getListFormations().subscribe(formations => this.formations = formations);
+        // this.formationService.getListFormations().subscribe(formations => this.formations = formations);
     }
 
     validerChapitre(): void {

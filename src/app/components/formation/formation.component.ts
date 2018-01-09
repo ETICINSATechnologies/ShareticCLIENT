@@ -25,8 +25,8 @@ export class FormationComponent implements OnInit {
         const id = +this.route.snapshot.paramMap.get('id');
         this.getFormation(id);
         this.getListFormations(id);
-        this.formationName = this.formations[id].name;
-        this.formationIcon = this.formations[id].icon;
+        // this.formationName = this.formations[id].name;
+        // this.formationIcon = this.formations[id].icon;
     }
 
     getFormation(id: number): void {
