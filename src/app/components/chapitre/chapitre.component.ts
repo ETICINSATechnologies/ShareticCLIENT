@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {FormationService} from '../../services/formation.service';
-import {Chapter} from '../../entities/Chapter';
-import {Formation} from '../../entities/Formation';
+import {Chapter} from '../../entities/chapter';
+import {Formation} from '../../entities/formation';
 import {AuthService} from '../../services/auth.service';
 import { Location } from '@angular/common';
+import {Formation} from "../../entities/formation";
 
 @Component({
   selector: 'app-chapitre',
