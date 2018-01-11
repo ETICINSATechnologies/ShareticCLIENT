@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryFormationDataService } from './in_memory_data/InMemoryFormationDataService';
+import { Ng2DragDropModule } from 'ng2-drag-drop';
 
 import { AppComponent } from './app.component';
 import { FormationsComponent } from './components/formations/formations.component';
@@ -52,7 +53,8 @@ import { ChapitreComponent } from './components/chapitre/chapitre.component';
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryFormationDataService, { dataEncapsulation: false }
-    )
+    ),
+    Ng2DragDropModule.forRoot()
   ],
   providers: [ FormationService, AuthGuard , LoginService, AuthService],
   bootstrap: [AppComponent]

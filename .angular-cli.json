@@ -17,6 +17,7 @@
       "prefix": "app",
       "styles": [
         "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/ng2-drag-drop/style.css",
         "styles.css"
       ],
       "scripts": [],
