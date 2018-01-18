@@ -1,1 +1,25 @@
 <h1 style="text-align:center">Créez votre formation</h1>
+
+<div class="col-sm-3">
+  <div class="ui segment">
+    <div class="ui header">
+      Draggable Items
+    </div>
+    <div class="ui celled list">
+      <li class="ui segment" [draggable] *ngFor="let item of vegetables"
+          [dragClass]="'active'" [dragData]="item" [dragScope]="item.type" [dragEnabled]="dragEnabled">
+          {{item.name}}
+      </li>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-3">
+  <div class="ui segment" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'vegetable'"
+       [dragHintClass]="'drag-hint'" (onDrop)="onVegetableDrop($event)">
+    <div class="ui header">Drop Vegetables here</div>
+    <div class="ui celled list">
+      <li *ngFor="let item of droppedVegetables" class="ui segment">{{item.name}}</li>
+    </div>
+  </div>
+</div>
