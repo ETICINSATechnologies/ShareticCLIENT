@@ -24,7 +24,6 @@ export class AddFormationComponent implements OnInit {
 
   droppedChapters = [];
   droppedItems = [];
-  dragEnabled = true;
 
   onItemDrop(e: any) {
     this.droppedChapters.push(e.dragData);
