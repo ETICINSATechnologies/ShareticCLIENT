@@ -5,12 +5,16 @@
        [dragHintClass]="'drag-hint'" (onDrop)="onItemDrop($event)">
     <div class="ui header">Déposez vos chapitres ici</div>
     <div class="ui celled list">
-      <li *ngFor="let item of droppedChapters" class="ui segment">{{item.title}}</li>
+      <li *ngFor="let item of droppedChapters" class="ui segment">
+        <div class="ui transparent input">
+          <input #chapterTitle type="text" placeholder="Entrez un titre">
+        </div>
+      </li>
     </div>
   </div>
 </div>
 
-<div class="col-sm-3">
+<div class="bottom col-sm-3">
   <div class="ui segment">
     <div class="ui header">
       Draggable Items
