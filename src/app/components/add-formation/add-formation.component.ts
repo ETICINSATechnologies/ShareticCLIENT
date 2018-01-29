@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Chapter} from '../../entities/chapter';
 
 @Component({
   selector: 'app-add-formation',
@@ -7,19 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFormationComponent implements OnInit {
 
-  chapters = [
-    {name: '1', type: 'chapter'},
-    {name: '2', type: 'chapter'},
-    {name: '3', type: 'chapter'},
-    {name: '4', type: 'chapter'}];
+  chapters: Chapter [];
+
+  emptyChapter: Chapter = {
+    id: 0,
+    nameFormation: 'Formation',
+    title: 'Entrer un nom',
+    content: '',
+    rating: 0
+  };
+
+  items = [
+    this.emptyChapter
+   ];
 
   droppedChapters = [];
   droppedItems = [];
   dragEnabled = true;
 
-  onChapterDrop(e: any) {
+  onItemDrop(e: any) {
     this.droppedChapters.push(e.dragData);
-    this.removeItem(e.dragData, this.chapters);
   }
 
   onAnyDrop(e: any) {

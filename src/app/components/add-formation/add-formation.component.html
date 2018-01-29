@@ -1,11 +1,11 @@
 <h1 style="text-align:center">Créez votre formation</h1>
 
 <div class="col-sm-3">
-  <div class="ui segment" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'chapter'"
-       [dragHintClass]="'drag-hint'" (onDrop)="onChapterDrop($event)">
+  <div class="ui segment" droppable [dragOverClass]="'drag-target-border-green'"
+       [dragHintClass]="'drag-hint'" (onDrop)="onItemDrop($event)">
     <div class="ui header">Déposez vos chapitres ici</div>
     <div class="ui celled list">
-      <li *ngFor="let item of droppedChapters" class="ui segment">{{item.name}}</li>
+      <li *ngFor="let item of droppedChapters" class="ui segment">{{item.title}}</li>
     </div>
   </div>
 </div>
@@ -16,9 +16,9 @@
       Draggable Items
     </div>
     <div class="ui celled list">
-      <li class="ui segment" [draggable] *ngFor="let item of chapters"
-          [dragClass]="'active'" [dragData]="item" [dragScope]="item.type">
-          {{item.name}}
+      <li class="ui segment" [draggable] *ngFor="let item of items"
+          [dragClass]="'active'" [dragData]="item">
+          {{item.title}}
       </li>
     </div>
   </div>
