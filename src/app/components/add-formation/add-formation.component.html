@@ -5,8 +5,8 @@
 <br>
 
 <div class="col-sm-3">
-  <div class="ui segment" droppable [dragOverClass]="'drag-target-border-green'"
-       [dragHintClass]="'drag-hint'" (onDrop)="onItemDrop($event)">
+  <div class="ui segment" droppable
+       (onDrop)="onItemDrop($event)">
     <div class="ui header">Déposez vos chapitres ici</div>
     <div class="ui celled list">
       <li *ngFor="let item of droppedChapters" class="ui green segment">
@@ -30,8 +30,7 @@
       Composants
     </div>
     <div class="ui celled list">
-      <li class="ui green segment" [draggable] *ngFor="let item of items"
-          [dragClass]="'active'" [dragData]="item">
+      <li class="ui green segment" [draggable] *ngFor="let item of items">
           {{item.title}}
       </li>
     </div>
