@@ -1,7 +1,4 @@
-<img src={{formationIcon}}/><h1>{{formationName}}</h1>
-<div class="ui grid">
-    <div class="twelve wide column">ANGULAR WORKS</div>
-</div>
+<img src={{formation.icon}}/><h1>{{formation.name}}</h1>
 <table class="ui celled padded table">
     <thead>
         <tr>
@@ -12,22 +9,22 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let formationDetail of formationDetails">
+      <!--tr *ngFor="let formation of formation">
             <td>
-                <a routerLink="../chapter/{{formationDetails.id}}">
-                    <h2 class="ui center aligned header">{{formationDetail.name}}</h2>
+                <a routerLink="../chapter/">
+                    <h2 class="ui center aligned header">{{formation.description}}</h2>
                 </a>
             </td>
             <td class="single line">
                 QCM
             </td>
             <td>
-              <sui-rating class="star" [ngModel]="rating" [maximum]="5"></sui-rating>
+              <sui-rating class="star" [ngModel]="1" [maximum]="5"></sui-rating>
             </td>
             <td>
-                Petite Description ou début de la description du chapitre en question <!-- {{formationDetails.content}} -->
+                Petite Description ou début de la description du chapitre en question  {{formationDetails.content}}
             </td>
-        </tr>
+        </tr-->
     </tbody>
 </table>
 
@@ -49,4 +46,5 @@
           </button>
         </div>
       </div>
+    </div>
 </div>
