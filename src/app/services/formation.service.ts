@@ -23,8 +23,9 @@ export class FormationService {
    * @returns {Observable<Formation[]>}
    */
   getListFormations(): Observable<Formation[]> {
-    return this.http.get<Formation[]>(API_SERVER.formations).pipe(
-      catchError(this.handleError('getListFormations', []))
+    return this.http.get<Formation[]>(API_SERVER.formations)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError('getListFormations', []))
       );
   }
 
@@ -35,8 +36,9 @@ export class FormationService {
    */
   getFormation(id: number): Observable<Formation> {
     const url = `${API_SERVER.formation}/${id}`;
-    return this.http.get<Formation>(url).map(result => result['res']).pipe(
-      catchError(this.handleError<Formation>(`getFormation id=${id}`)));
+    return this.http.get<Formation>(url)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError<Formation>(`getFormation id=${id}`)));
   }
 
   /**
