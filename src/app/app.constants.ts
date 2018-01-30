@@ -1,5 +1,5 @@
 export const API_SERVER: any = {
-  url: 'http://localhost:8000/api/',
-  oauth: 'http://localhost:8000/oauth/',
-  formation: 'http://localhost:8000/api/formation/',
+  url: 'http://127.0.0.1:8000/api/',
+  formation: 'http://localhost:8000/api/formation',
+  formations: 'http://localhost:8000/api/formations',
 };
