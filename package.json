@@ -24,6 +24,7 @@
     "angular-in-memory-web-api": "^0.5.2",
     "core-js": "^2.5.3",
     "font-awesome": "^4.7.0",
+    "ng2-drag-drop": "^3.0.2",
     "ng2-semantic-ui": "^0.9.6",
     "rxjs": "^5.5.5",
     "zone.js": "^0.8.14"
