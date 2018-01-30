@@ -12,7 +12,12 @@ import { Location } from '@angular/common';
   styleUrls: ['./formation.component.css']
 })
 export class FormationComponent implements OnInit {
-    formation: Formation;
+    formation: Formation = {
+      id : 1,
+      name: '',
+      icon: '',
+      description: ''
+    };
 
   constructor(private formationService: FormationService, private authService: AuthService,
               private route: ActivatedRoute, private location: Location) { }
