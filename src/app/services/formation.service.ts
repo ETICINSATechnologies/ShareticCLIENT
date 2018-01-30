@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
 
 import { Formation } from '../entities/formation';
+import 'rxjs/add/operator/map';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +16,7 @@ export class FormationService {
 
   constructor( private http: HttpClient) { }
 
-  private formationsUrl = 'api/formations';  // URL to web api
+  private formationsUrl = 'http://127.0.0.1:8000/api/formation';  // URL to web api
 
 
   /**
@@ -29,15 +30,14 @@ export class FormationService {
   }
 
   /**
-   * GET hero by id. Will 404 if id not found
+   * GET formation by id. Will 404 if id not found
    * @param {number} id
    * @returns {Observable<Formation>}
    */
   getFormation(id: number): Observable<Formation> {
     const url = `${this.formationsUrl}/${id}`;
-    return this.http.get<Formation>(url).pipe(
-      catchError(this.handleError<Formation>(`getFormation id=${id}`))
-    );
+    return this.http.get<Formation>(url).map(result => result['res']).pipe(
+      catchError(this.handleError<Formation>(`getFormation id=${id}`)));
   }
 
   /**
