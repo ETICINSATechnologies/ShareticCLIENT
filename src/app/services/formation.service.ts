@@ -3,8 +3,11 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
+import 'rxjs/add/operator/map';
 
 import { Formation } from '../entities/formation';
+import { API_SERVER } from '../app.constants';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,29 +18,27 @@ export class FormationService {
 
   constructor( private http: HttpClient) { }
 
-  private formationsUrl = 'api/formations';  // URL to web api
-
-
   /**
    * Get the formations from the server.
    * @returns {Observable<Formation[]>}
    */
   getListFormations(): Observable<Formation[]> {
-    return this.http.get<Formation[]>(this.formationsUrl).pipe(
-      catchError(this.handleError('getListFormations', []))
+    return this.http.get<Formation[]>(API_SERVER.formations)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError('getListFormations', []))
       );
   }
 
   /**
-   * GET hero by id. Will 404 if id not found
+   * GET formation by id. Will 404 if id not found
    * @param {number} id
    * @returns {Observable<Formation>}
    */
   getFormation(id: number): Observable<Formation> {
-    const url = `${this.formationsUrl}/${id}`;
-    return this.http.get<Formation>(url).pipe(
-      catchError(this.handleError<Formation>(`getFormation id=${id}`))
-    );
+    const url = `${API_SERVER.formation}/${id}`;
+    return this.http.get<Formation>(url)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError<Formation>(`getFormation id=${id}`)));
   }
 
   /**
@@ -46,7 +47,7 @@ export class FormationService {
    * @returns {Observable<any>}
    */
   updateFormation (formation: Formation): Observable<any> {
-    return this.http.put(this.formationsUrl, formation, httpOptions).pipe(
+    return this.http.put(API_SERVER.formation, formation, httpOptions).pipe(
       catchError(this.handleError<any>('updateFormation'))
     );
   }
@@ -57,7 +58,7 @@ export class FormationService {
    * @returns {Observable<Formation>}
    */
   addFormation (formation: Formation): Observable<Formation> {
-    return this.http.post<Formation>(this.formationsUrl, formation, httpOptions).pipe(
+    return this.http.post<Formation>(API_SERVER.formation, formation, httpOptions).pipe(
       catchError(this.handleError<Formation>('addFormation'))
     );
   }
@@ -69,7 +70,7 @@ export class FormationService {
    */
   deleteFormation (formation: Formation | number): Observable<Formation> {
     const id = typeof formation === 'number' ? formation : formation.id;
-    const url = `${this.formationsUrl}/${id}`;
+    const url = `${API_SERVER.formation}/${id}`;
 
     return this.http.delete<Formation>(url, httpOptions).pipe(
       catchError(this.handleError<Formation>('deleteFormation'))

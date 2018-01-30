@@ -51,9 +51,9 @@ import { ChapitreComponent } from './components/chapitre/chapitre.component';
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryFormationDataService, { dataEncapsulation: false }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+      // InMemoryFormationDataService, { dataEncapsulation: false }
+    // ),
     Ng2DragDropModule.forRoot()
   ],
   providers: [ FormationService, AuthGuard , LoginService, AuthService],
