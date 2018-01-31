@@ -7,6 +7,7 @@ import {FormationService} from '../../services/formation.service';
 import {AuthService} from '../../services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
+import {ChapterService} from '../../services/chapter.service';
 
 
 describe('FormationComponent', () => {
@@ -17,7 +18,7 @@ describe('FormationComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ FormationComponent ],
       imports: [ SuiRatingModule, FormsModule, HttpClientModule, RouterTestingModule],
-      providers: [ FormationService, AuthService]
+      providers: [ FormationService, AuthService, ChapterService]
     })
     .compileComponents();
   }));

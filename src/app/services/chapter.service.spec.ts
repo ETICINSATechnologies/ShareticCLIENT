@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ChapterService } from './chapter.service';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('ChapterService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ChapterService]
+      providers: [ChapterService],
+      imports: [HttpClientModule]
     });
   });
 
