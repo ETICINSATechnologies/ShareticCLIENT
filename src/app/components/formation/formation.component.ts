@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import {FormationService} from '../../services/formation.service';
-import {FormationDetails} from '../../entities/formationDetails';
 import {Formation} from '../../entities/formation';
 import {AuthService} from '../../services/auth.service';
 import { Location } from '@angular/common';
@@ -16,11 +15,8 @@ export class FormationComponent implements OnInit {
       id : 1,
       name: '',
       icon: '',
-      description: ''
-    };
-
-    formationDetails: FormationDetails = {
-      idChapters : []
+      description: '',
+      idChapters: []
     };
 
   constructor(private formationService: FormationService, private authService: AuthService,
@@ -32,7 +28,7 @@ export class FormationComponent implements OnInit {
     }
 
     getFormation(id: number): void {
-         this.formationService.getFormation(id).subscribe(formation =>  this.formation = formation);
+         this.formationService.getFormation(id).subscribe(formation => this.formation = formation);
     }
 
     addNewChapter(): void {
