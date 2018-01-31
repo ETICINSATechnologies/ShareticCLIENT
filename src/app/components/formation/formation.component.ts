@@ -19,6 +19,10 @@ export class FormationComponent implements OnInit {
       description: ''
     };
 
+    formationDetails: FormationDetails = {
+      idChapters : []
+    };
+
   constructor(private formationService: FormationService, private authService: AuthService,
               private route: ActivatedRoute, private location: Location) { }
 

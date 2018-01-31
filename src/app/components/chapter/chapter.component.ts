@@ -9,8 +9,8 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-chapitre',
-  templateUrl: './chapitre.component.html',
-  styleUrls: ['./chapitre.component.css']
+  templateUrl: './chapter.component.html',
+  styleUrls: ['./chapter.component.css']
 })
 export class ChapitreComponent implements OnInit {
 

@@ -20,7 +20,7 @@ import {AuthService} from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormationComponent } from './components/add-formation/add-formation.component';
-import { ChapitreComponent } from './components/chapitre/chapitre.component';
+import { ChapitreComponent } from './components/chapter/chapter.component';
 
 @NgModule({
   declarations: [
