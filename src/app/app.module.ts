@@ -21,6 +21,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormationComponent } from './components/add-formation/add-formation.component';
 import { ChapitreComponent } from './components/chapter/chapter.component';
+import {ChapterService} from "./services/chapter.service";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { ChapitreComponent } from './components/chapter/chapter.component';
     // ),
     Ng2DragDropModule.forRoot()
   ],
-  providers: [ FormationService, AuthGuard , LoginService, AuthService],
+  providers: [ FormationService, AuthGuard , LoginService, AuthService, ChapterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

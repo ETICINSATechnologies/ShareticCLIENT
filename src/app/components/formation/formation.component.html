@@ -9,22 +9,22 @@
         </tr>
     </thead>
     <tbody>
-      <!--tr *ngFor="let formation of formation">
+      <tr *ngFor="let chapter of chapters">
             <td>
                 <a routerLink="../chapter/">
-                    <h2 class="ui center aligned header">{{formation.description}}</h2>
+                    <h3 class="ui center aligned header">{{chapter.title}}</h3>
                 </a>
             </td>
             <td class="single line">
-                QCM
+                <!-- Lien vers QCM -->
             </td>
             <td>
-              <sui-rating class="star" [ngModel]="1" [maximum]="5"></sui-rating>
+              <!--sui-rating class="star" [ngModel]={{chapter.rating}} [maximum]="5"></sui-rating-->
             </td>
             <td>
-                Petite Description ou début de la description du chapitre en question  {{formationDetails.content}}
+              {{chapter.description}}
             </td>
-        </tr-->
+        </tr>
     </tbody>
 </table>
 

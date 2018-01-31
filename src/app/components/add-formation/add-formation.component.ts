@@ -13,6 +13,7 @@ export class AddFormationComponent implements OnInit {
   emptyChapter: Chapter = {
     id: 0,
     title: 'Chapitre',
+    description: '',
     content: '',
     rating: 0
   };
