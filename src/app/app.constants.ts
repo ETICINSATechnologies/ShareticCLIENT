@@ -1,5 +1,5 @@
 export const API_SERVER: any = {
   url: 'http://127.0.0.1:8000/api/',
-  formation: 'http://127.0.0.1:8000/api/formation',
-  formations: 'http://127.0.0.1:8000/api/formations',
+  formation: 'https://sharetic-node.herokuapp.com/api/formation',
+  formations: 'https://sharetic-node.herokuapp.com/api/formations',
 };
