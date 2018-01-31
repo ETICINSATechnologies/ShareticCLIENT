@@ -2,10 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SuiModule } from 'ng2-semantic-ui';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryFormationDataService } from './in_memory_data/InMemoryFormationDataService';
 import { Ng2DragDropModule } from 'ng2-drag-drop';
 
 import { AppComponent } from './app.component';
@@ -21,7 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormationComponent } from './components/add-formation/add-formation.component';
 import { ChapitreComponent } from './components/chapter/chapter.component';
-import {ChapterService} from "./services/chapter.service";
+import {ChapterService} from './services/chapter.service';
 
 @NgModule({
   declarations: [
@@ -49,12 +47,6 @@ import {ChapterService} from "./services/chapter.service";
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
     HttpClientModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    // HttpClientInMemoryWebApiModule.forRoot(
-      // InMemoryFormationDataService, { dataEncapsulation: false }
-    // ),
     Ng2DragDropModule.forRoot()
   ],
   providers: [ FormationService, AuthGuard , LoginService, AuthService, ChapterService],
