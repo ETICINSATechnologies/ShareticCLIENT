@@ -7,8 +7,6 @@ import 'rxjs/add/operator/map';
 
 import { Chapter } from '../entities/chapter';
 import { API_SERVER } from '../app.constants';
-import {Formation} from "../entities/formation";
-
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -28,7 +26,7 @@ export class ChapterService {
     const url = `${API_SERVER.chapter}/${id}`;
     return this.http.get<Chapter>(url)
       .map(result => result['res'])
-      .pipe(catchError(this.handleError<Formation>(`getChapter id=${id}`)));
+      .pipe(catchError(this.handleError<Chapter>(`getChapter id=${id}`)));
   }
 
   /**
