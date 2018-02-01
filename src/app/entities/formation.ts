@@ -3,5 +3,4 @@ export class Formation {
   name: string;
   icon: string;
   description: string;
-  idChapters: number[];
 }
