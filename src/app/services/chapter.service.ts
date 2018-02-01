@@ -18,6 +18,19 @@ export class ChapterService {
   constructor(private http: HttpClient) { }
 
   /**
+   * Get the chapters of a formation from a server
+   * @param {number} id
+   * @returns {Observable<Chapter[]>}
+   */
+  getListChapters(id: number): Observable<Chapter[]> {
+    const url = `${API_SERVER.chapters}/${id}`;
+    return this.http.get<Chapter[]>(url)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError('getListChapters', []))
+      );
+  }
+
+  /**
    * GET a chapter from the server.
    * @param {number} id
    * @returns {Observable<Chapter[]>}
