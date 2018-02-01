@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChapitreComponent } from './chapitre.component';
+import { ChapitreComponent } from './chapter.component';
 import {FormationService} from '../../services/formation.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from '../../services/auth.service';

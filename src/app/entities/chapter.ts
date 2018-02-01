@@ -1,7 +1,8 @@
 export class Chapter {
     id: number;
-    nameFormation: string;
+    place: number;
     title: string;
+    description: string;
     content: string;
     rating: number;
 }
