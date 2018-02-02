@@ -46,9 +46,10 @@ export class FormationService {
    * @param {Formation} formation
    * @returns {Observable<any>}
    */
-  updateFormation (formation: Formation): Observable<any> {
-    return this.http.put(API_SERVER.formation, formation, httpOptions).pipe(
-      catchError(this.handleError<any>('updateFormation'))
+  updateFormation (formation: Formation): Observable<Formation> {
+    return this.http.put(API_SERVER.formation, formation, httpOptions)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError<any>('updateFormation'))
     );
   }
 
@@ -58,8 +59,9 @@ export class FormationService {
    * @returns {Observable<Formation>}
    */
   addFormation (formation: Formation): Observable<Formation> {
-    return this.http.post<Formation>(API_SERVER.formation, formation, httpOptions).pipe(
-      catchError(this.handleError<Formation>('addFormation'))
+    return this.http.post<Formation>(API_SERVER.formation, formation, httpOptions)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError<Formation>('addFormation'))
     );
   }
 
