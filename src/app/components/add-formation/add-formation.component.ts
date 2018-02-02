@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chapter} from '../../entities/chapter';
+import {FormationService} from '../../services/formation.service';
+import {Formation} from '../../entities/formation';
 
 @Component({
   selector: 'app-add-formation',
@@ -7,6 +9,8 @@ import { Chapter} from '../../entities/chapter';
   styleUrls: ['./add-formation.component.css']
 })
 export class AddFormationComponent implements OnInit {
+
+  formationSaved = false;
 
   chapters: Chapter [];
 
@@ -19,6 +23,13 @@ export class AddFormationComponent implements OnInit {
     rating: 0
   };
 
+  formation: Formation = {
+    id: 0,
+    name: '',
+    icon: '',
+    description: '',
+  };
+
   items = [
     this.emptyChapter
   ];
@@ -27,7 +38,7 @@ export class AddFormationComponent implements OnInit {
   droppedItems = [];
 
 
-  constructor() { }
+  constructor( private formationService: FormationService) { }
 
   ngOnInit() {
   }
@@ -51,8 +62,20 @@ export class AddFormationComponent implements OnInit {
     list.splice(index, 1);
   }
 
-  deleteChapter(chapter: Chapter){
-    this.droppedChapters.splice(this.droppedChapters.indexOf(chapter), 1);
+  saveFormation() {
+    if (!this.formationSaved) {
+      this.formationService.addFormation(this.formation).subscribe(f =>  {
+          this.formation = f;
+          this.formationSaved = true;
+        });
+    } else {
+      this.formationService.updateFormation(this.formation).subscribe(f => {
+        this.formation = f;
+      });
+    }
   }
 
+  deleteChapter(chapter: Chapter) {
+    this.droppedChapters.splice(this.droppedChapters.indexOf(chapter), 1);
+  }
 }
