@@ -21,10 +21,16 @@ export class AddFormationComponent implements OnInit {
 
   items = [
     this.emptyChapter
-   ];
+  ];
 
   droppedChapters = [];
   droppedItems = [];
+
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 
   onItemDrop(e: any) {
     this.droppedChapters.push(e.dragData);
@@ -45,9 +51,8 @@ export class AddFormationComponent implements OnInit {
     list.splice(index, 1);
   }
 
-  constructor() { }
-
-  ngOnInit() {
+  deleteChapter(chapter: Chapter){
+    this.droppedChapters.splice(this.droppedChapters.indexOf(chapter), 1);
   }
 
 }
