@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chapter} from '../../entities/chapter';
 import {FormationService} from '../../services/formation.service';
 import {Formation} from '../../entities/formation';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-add-formation',
@@ -38,7 +39,7 @@ export class AddFormationComponent implements OnInit {
   droppedItems = [];
 
 
-  constructor( private formationService: FormationService) { }
+  constructor( private formationService: FormationService, private location: Location) { }
 
   ngOnInit() {
   }
