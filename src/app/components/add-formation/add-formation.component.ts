@@ -78,4 +78,8 @@ export class AddFormationComponent implements OnInit {
   deleteChapter(chapter: Chapter) {
     this.droppedChapters.splice(this.droppedChapters.indexOf(chapter), 1);
   }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
