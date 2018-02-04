@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 
 import { Chapter } from '../entities/chapter';
 import { API_SERVER } from '../app.constants';
+import {Formation} from '../entities/formation';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -40,6 +41,31 @@ export class ChapterService {
     return this.http.get<Chapter>(url)
       .map(result => result['res'])
       .pipe(catchError(this.handleError<Chapter>(`getChapter id=${id}`)));
+  }
+
+  /**
+   * Put: Update the chapter on the server
+   * @param {Chapter} chapter
+   * @returns {Observable<Chapter>}
+   */
+  updateChapter (chapter: Chapter): Observable<Chapter> {
+    return this.http.put<Chapter>(API_SERVER.chapter, chapter, httpOptions)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError<Chapter>('updateChapter'))
+      );
+  }
+
+  /**
+   * Post: add a new chapter on the server
+   * @param {Chapter} chapter
+   * @returns {Observable<Chapter>}
+   */
+  addChapter (chapter: Chapter, idFormation: number): Observable<Chapter> {
+    const url = `${API_SERVER.chapter}/add`;
+    return this.http.post<Chapter>(url, chapter, httpOptions)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError<Chapter>('addChapter'))
+      );
   }
 
   /**
