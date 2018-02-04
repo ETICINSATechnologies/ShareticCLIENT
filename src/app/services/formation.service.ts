@@ -44,10 +44,10 @@ export class FormationService {
   /**
    * Put: Update the formation on the server
    * @param {Formation} formation
-   * @returns {Observable<any>}
+   * @returns {Observable<Formation>}
    */
   updateFormation (formation: Formation): Observable<Formation> {
-    return this.http.put(API_SERVER.formation, formation, httpOptions)
+    return this.http.put<Formation>(API_SERVER.formation, formation, httpOptions)
       .map(result => result['res'])
       .pipe(catchError(this.handleError<any>('updateFormation'))
     );
