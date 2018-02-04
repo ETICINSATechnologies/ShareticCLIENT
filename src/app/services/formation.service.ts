@@ -49,7 +49,7 @@ export class FormationService {
   updateFormation (formation: Formation): Observable<Formation> {
     return this.http.put<Formation>(API_SERVER.formation, formation, httpOptions)
       .map(result => result['res'])
-      .pipe(catchError(this.handleError<any>('updateFormation'))
+      .pipe(catchError(this.handleError<Formation>('updateFormation'))
     );
   }
 
