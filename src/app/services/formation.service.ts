@@ -59,7 +59,8 @@ export class FormationService {
    * @returns {Observable<Formation>}
    */
   addFormation (formation: Formation): Observable<Formation> {
-    return this.http.post<Formation>(API_SERVER.formation, formation, httpOptions)
+    const url = `${API_SERVER.formation}/add`;
+    return this.http.post<Formation>(url, formation, httpOptions)
       .map(result => result['res'])
       .pipe(catchError(this.handleError<Formation>('addFormation'))
     );

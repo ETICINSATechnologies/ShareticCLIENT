@@ -3,12 +3,12 @@
 <div class="ui form">
   <label> Titre de la formation</label>
   <div class="input">
-    <input #formationName type="text" placeholder="Entrez un nom de formation">
+    <input  [(ngModel)]="formation.name" type="text" placeholder="Entrez un nom de formation">
   </div>
   <br>
   <label> Description</label>
   <div class="field">
-    <textarea #formationDescription placeholder="Entrez la descriptiond de la formation" rows="2"></textarea>
+    <textarea [(ngModel)]="formation.description" placeholder="Entrez la descriptiond de la formation" rows="2"></textarea>
   </div>
 </div>
 
