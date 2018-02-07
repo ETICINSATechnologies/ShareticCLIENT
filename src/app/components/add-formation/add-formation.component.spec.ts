@@ -4,6 +4,8 @@ import { AddFormationComponent } from './add-formation.component';
 import {FormationService} from '../../services/formation.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
+import {FormsModule} from '@angular/forms';
+import {Ng2DragDropModule} from 'ng2-drag-drop';
 
 describe('AddFormationComponent', () => {
   let component: AddFormationComponent;
@@ -13,7 +15,7 @@ describe('AddFormationComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AddFormationComponent ],
       providers: [FormationService],
-      imports: [HttpClientModule, RouterTestingModule]
+      imports: [HttpClientModule, RouterTestingModule, FormsModule,  Ng2DragDropModule.forRoot()]
     })
     .compileComponents();
   }));
