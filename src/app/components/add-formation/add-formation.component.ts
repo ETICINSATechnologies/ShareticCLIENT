@@ -13,10 +13,10 @@ export class AddFormationComponent implements OnInit {
 
   formationSaved = false;
 
-  chapters: Chapter [];
+  chapters: Chapter []= [];
 
   emptyChapter: Chapter = {
-    id: 0,
+    id: -1,
     title: 'Chapitre',
     place: 0,
     description: '',
@@ -25,7 +25,7 @@ export class AddFormationComponent implements OnInit {
   };
 
   formation: Formation = {
-    id: 0,
+    id: -1,
     name: '',
     icon: '',
     description: '',
@@ -35,32 +35,14 @@ export class AddFormationComponent implements OnInit {
     this.emptyChapter
   ];
 
-  droppedChapters = [];
-  droppedItems = [];
-
-
   constructor( private formationService: FormationService, private location: Location) { }
 
   ngOnInit() {
   }
 
   onItemDrop(e: any) {
-    this.droppedChapters.push(e.dragData);
-  }
-
-  onAnyDrop(e: any) {
-    this.droppedItems.push(e.dragData);
-
-    if (e.dragData.type === 'chapter') {
-      this.removeItem(e.dragData, this.chapters);
-    }
-  }
-
-  removeItem(item: any, list: Array<any>) {
-    const index = list.map(function (e) {
-      return e.name;
-    }).indexOf(item.name);
-    list.splice(index, 1);
+    e.dragData.title = '';
+    this.chapters.push(e.dragData);
   }
 
   saveFormation() {
@@ -77,7 +59,7 @@ export class AddFormationComponent implements OnInit {
   }
 
   deleteChapter(chapter: Chapter) {
-    this.droppedChapters.splice(this.droppedChapters.indexOf(chapter), 1);
+    this.chapters.splice(this.chapters.indexOf(chapter), 1);
   }
 
   goBack(): void {
