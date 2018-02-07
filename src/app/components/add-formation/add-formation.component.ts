@@ -3,6 +3,7 @@ import { Chapter} from '../../entities/chapter';
 import {FormationService} from '../../services/formation.service';
 import {Formation} from '../../entities/formation';
 import {Location} from '@angular/common';
+import {ChapterService} from '../../services/chapter.service';
 
 @Component({
   selector: 'app-add-formation',
@@ -45,25 +46,31 @@ export class AddFormationComponent implements OnInit {
     this.emptyChapter
   ];
 
-  constructor( private formationService: FormationService, private location: Location) { }
+  constructor( private formationService: FormationService, private chapterService: ChapterService,
+               private location: Location) { }
 
   ngOnInit() {
   }
 
   onChapterDrop(e: any) {
-    e.dragData.title = '';
-    this.chapters.push(e.dragData);
+    const newChapter: Chapter = e.dragData;
+    this.chapters.push(newChapter);
   }
 
   saveFormation() {
     if (this.formation.id === -1) {
       this.formationService.addFormation(this.formation).subscribe(f =>  {
           this.formation = f;
+          for (const chapter of this.chapters) {
+            this.chapterService.addChapter(chapter, f.id).subscribe( c => {
+              this.chapters[this.chapters.indexOf(chapter)] = c;
+            });
+          }
         });
     } else {
-      this.formationService.updateFormation(this.formation).subscribe(f => {
+      /*this.formationService.updateFormation(this.formation).subscribe(f => {
         this.formation = f;
-      });
+      });*/
     }
   }
 
