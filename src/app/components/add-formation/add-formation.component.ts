@@ -11,10 +11,14 @@ import {Location} from '@angular/common';
 })
 export class AddFormationComponent implements OnInit {
 
-  formationSaved = false;
-
+  /**
+   * List of formation's chapters .
+   */
   chapters: Chapter []= [];
 
+  /**
+   * Empty chapter, id is set to -1 until it is saved and given an id by the server.
+   */
   emptyChapter: Chapter = {
     id: -1,
     title: 'Chapitre',
@@ -24,6 +28,9 @@ export class AddFormationComponent implements OnInit {
     rating: 0
   };
 
+  /**
+   * Empty formation, id is set to -1 until it is saved and given an id by the server.
+   */
   formation: Formation = {
     id: -1,
     name: '',
@@ -31,6 +38,9 @@ export class AddFormationComponent implements OnInit {
     description: '',
   };
 
+  /**
+   * List of item, available to the user to make a formation.
+   */
   items = [
     this.emptyChapter
   ];
@@ -40,16 +50,15 @@ export class AddFormationComponent implements OnInit {
   ngOnInit() {
   }
 
-  onItemDrop(e: any) {
+  onChapterDrop(e: any) {
     e.dragData.title = '';
     this.chapters.push(e.dragData);
   }
 
   saveFormation() {
-    if (!this.formationSaved) {
+    if (this.formation.id === -1) {
       this.formationService.addFormation(this.formation).subscribe(f =>  {
           this.formation = f;
-          this.formationSaved = true;
         });
     } else {
       this.formationService.updateFormation(this.formation).subscribe(f => {
