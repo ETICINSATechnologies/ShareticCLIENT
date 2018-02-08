@@ -70,6 +70,17 @@ export class ChapterService {
   }
 
   /**
+   * Delete: delete the chapter on the server
+   * @param {Chapter} chapter
+   * @returns {Observable<Chapter>}
+   */
+  deleteChapter(chapter: Chapter): Observable<Chapter> {
+    const url = `${API_SERVER.chapter}/${chapter.id}`;
+    return this.http.delete<Chapter>(url)
+      .pipe(catchError(this.handleError<Chapter>(`deleteChapter id=${chapter.id}`)));
+  }
+
+  /**
    * Handle Http operation that failed.
    * Let the app continue.
    * @param operation - name of the operation that failed

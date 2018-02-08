@@ -87,7 +87,12 @@ export class AddFormationComponent implements OnInit {
   }
 
   deleteChapter(chapter: Chapter) {
-    this.chapters.splice(this.chapters.indexOf(chapter), 1);
+    if (chapter.id === -1){
+      this.chapters.splice(this.chapters.indexOf(chapter), 1);
+    }else{
+      this.chapterService.deleteChapter(chapter).subscribe(c =>
+        this.chapters.splice(this.chapters.indexOf(chapter), 1));
+    }
   }
 
   goBack(): void {
