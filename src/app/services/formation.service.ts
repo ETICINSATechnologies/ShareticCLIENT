@@ -47,7 +47,8 @@ export class FormationService {
    * @returns {Observable<Formation>}
    */
   updateFormation (formation: Formation): Observable<Formation> {
-    return this.http.put<Formation>(API_SERVER.formation, formation, httpOptions)
+    const url = `${API_SERVER.formation}/${formation.id}/edit`;
+    return this.http.put<Formation>(url, formation, httpOptions)
       .map(result => result['res'])
       .pipe(catchError(this.handleError<Formation>('updateFormation'))
     );

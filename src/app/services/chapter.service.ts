@@ -62,7 +62,7 @@ export class ChapterService {
    * @returns {Observable<Chapter>}
    */
   addChapter (chapter: Chapter, idFormation: number): Observable<Chapter> {
-    const url = `${API_SERVER.chapter}/add/${idFormation}`;
+    const url = `${API_SERVER.chapter}/${idFormation}/addChapter`;
     return this.http.post<Chapter>(url, chapter, httpOptions)
       .map(result => result['res'])
       .pipe(catchError(this.handleError<Chapter>('addChapter'))
