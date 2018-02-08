@@ -57,6 +57,10 @@ export class AddFormationComponent implements OnInit {
     this.chapters.push(newChapter);
   }
 
+  /**
+   * Save the formation on the server, the 1st time the formation is saved, all chapters are saved too.
+   * The following times, the formation is updated and only new chapters are added.
+   */
   saveFormation() {
     if (this.formation.id === -1) {
       this.formationService.addFormation(this.formation).subscribe(f =>  {
@@ -68,9 +72,16 @@ export class AddFormationComponent implements OnInit {
           }
         });
     } else {
-      /*this.formationService.updateFormation(this.formation).subscribe(f => {
+      this.formationService.updateFormation(this.formation).subscribe(f => {
         this.formation = f;
-      });*/
+        for (const chapter of this.chapters) {
+          if (chapter.id === -1) {
+            this.chapterService.addChapter(chapter, f.id).subscribe( c => {
+              this.chapters[this.chapters.indexOf(chapter)] = c;
+            });
+          }
+        }
+      });
     }
   }
 
