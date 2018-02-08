@@ -53,8 +53,9 @@ export class AddFormationComponent implements OnInit {
   }
 
   onChapterDrop(e: any) {
-    const newChapter: Chapter = e.dragData;
-    this.chapters.push(newChapter);
+      const chapter = JSON.parse(JSON.stringify(e.dragData));
+      chapter.title = '';
+      this.chapters.push(chapter);
   }
 
   /**
