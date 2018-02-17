@@ -22,11 +22,14 @@ export class AddFormationComponent implements OnInit {
    */
   emptyChapter: Chapter = {
     id: -1,
-    title: 'Chapitre',
-    place: 0,
+    name: 'Chapitre',
+    position: 0,
     description: '',
-    content: '',
-    rating: 0
+    draft: '',
+    icon: {
+      path: 'default',
+      format: 'png'
+    }
   };
 
   /**

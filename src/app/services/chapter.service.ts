@@ -25,10 +25,13 @@ export class ChapterService {
    */
   getListChapters(id: number): Observable<Chapter[]> {
     const url = `${API_SERVER.chapters}/${id}`;
-    return this.http.get<Chapter[]>(url)
-      .map(result => result['res'])
+    let chapters;
+    chapters = this.http.get<Chapter[]>(url)
+      .map(result => result['chapters'])
       .pipe(catchError(this.handleError('getListChapters', []))
       );
+    console.log(chapters);
+    return chapters;
   }
 
   /**

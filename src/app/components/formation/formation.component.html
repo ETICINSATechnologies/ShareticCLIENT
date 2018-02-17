@@ -12,14 +12,11 @@
       <tr *ngFor="let chapter of chapters">
             <td>
                 <a routerLink="../chapter/">
-                    <h3 class="ui center aligned header">{{chapter.title}}</h3>
+                    <h3 class="ui center aligned header">{{chapter.name}}</h3>
                 </a>
             </td>
             <td class="single line">
                 <!-- Lien vers QCM -->
-            </td>
-            <td>
-              <!--sui-rating class="star" [ngModel]={{chapter.rating}} [maximum]="5"></sui-rating-->
             </td>
             <td>
               {{chapter.description}}

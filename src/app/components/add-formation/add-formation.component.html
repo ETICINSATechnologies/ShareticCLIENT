@@ -22,7 +22,7 @@
     <div class="ui celled list">
       <li *ngFor="let item of chapters" class="ui green segment">
         <div class="ui transparent fluid input">
-          <input [(ngModel)]="item.title" type="text" placeholder="Entrez un titre de chapitre">
+          <input [(ngModel)]="item.name" type="text" placeholder="Entrez un titre de chapitre">
           <button (click)="deleteChapter(item)" class="ui red button">X</button>
         </div>
       </li>
@@ -63,7 +63,7 @@
     </div>
     <div class="ui celled list">
       <li class="ui green segment" [draggable] *ngFor="let item of items" [dragData]="item">
-          {{item.title}}
+          {{item.name}}
       </li>
     </div>
   </div>
