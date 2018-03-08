@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Chapter} from '../../entities/chapter';
+import {FormationService} from '../../services/formation.service';
+import {Formation} from '../../entities/formation';
+import {Location} from '@angular/common';
+import {ChapterService} from '../../services/chapter.service';
 
 @Component({
   selector: 'app-add-formation',
@@ -8,46 +12,93 @@ import { Chapter} from '../../entities/chapter';
 })
 export class AddFormationComponent implements OnInit {
 
-  chapters: Chapter [];
+  /**
+   * List of formation's chapters .
+   */
+  chapters: Chapter []= [];
 
+  /**
+   * Empty chapter, id is set to -1 until it is saved and given an id by the server.
+   */
   emptyChapter: Chapter = {
-    id: 0,
-    title: 'Chapitre',
-    place: 0,
+    id: -1,
+    name: 'Chapitre',
+    position: 0,
     description: '',
-    content: '',
-    rating: 0
+    draft: '',
+    icon: {
+      path: 'default',
+      format: 'png'
+    }
   };
 
+  /**
+   * Empty formation, id is set to -1 until it is saved and given an id by the server.
+   */
+  formation: Formation = {
+    id: -1,
+    name: '',
+    icon: '',
+    description: '',
+  };
+
+  /**
+   * List of item, available to the user to make a formation.
+   */
   items = [
     this.emptyChapter
-   ];
+  ];
 
-  droppedChapters = [];
-  droppedItems = [];
-
-  onItemDrop(e: any) {
-    this.droppedChapters.push(e.dragData);
-  }
-
-  onAnyDrop(e: any) {
-    this.droppedItems.push(e.dragData);
-
-    if (e.dragData.type === 'chapter') {
-      this.removeItem(e.dragData, this.chapters);
-    }
-  }
-
-  removeItem(item: any, list: Array<any>) {
-    const index = list.map(function (e) {
-      return e.name;
-    }).indexOf(item.name);
-    list.splice(index, 1);
-  }
-
-  constructor() { }
+  constructor( private formationService: FormationService, private chapterService: ChapterService,
+               private location: Location) { }
 
   ngOnInit() {
   }
 
+  onChapterDrop(e: any) {
+      const chapter = JSON.parse(JSON.stringify(e.dragData));
+      chapter.title = '';
+      this.chapters.push(chapter);
+  }
+
+  /**
+   * Save the formation on the server, the 1st time the formation is saved, all chapters are saved too.
+   * The following times, the formation is updated and only new chapters are added.
+   */
+  saveFormation() {
+    if (this.formation.id === -1) {
+      this.formationService.addFormation(this.formation).subscribe(f =>  {
+          this.formation = f;
+          for (const chapter of this.chapters) {
+            this.chapterService.addChapter(chapter, f.id).subscribe( c => {
+              this.chapters[this.chapters.indexOf(chapter)] = c;
+            });
+          }
+        });
+    } else {
+      this.formationService.updateFormation(this.formation).subscribe(f => {
+        this.formation = f;
+        for (const chapter of this.chapters) {
+          if (chapter.id === -1) {
+            this.chapterService.addChapter(chapter, f.id).subscribe( c => {
+              this.chapters[this.chapters.indexOf(chapter)] = c;
+            });
+          }
+        }
+      });
+    }
+  }
+
+  deleteChapter(chapter: Chapter) {
+    if (chapter.id === -1) {
+      this.chapters.splice(this.chapters.indexOf(chapter), 1);
+    }else {
+      this.chapterService.deleteChapter(chapter).subscribe( c =>
+        this.chapters.splice(this.chapters.indexOf(chapter), 1));
+    }
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

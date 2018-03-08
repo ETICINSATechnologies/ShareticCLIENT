@@ -1,8 +1,11 @@
 export class Chapter {
     id: number;
-    place: number;
-    title: string;
+    position: number;
+    name: string;
     description: string;
-    content: string;
-    rating: number;
+    draft: string;
+    icon: {
+      path: string;
+      format: string
+    };
 }

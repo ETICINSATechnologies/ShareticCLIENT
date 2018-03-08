@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 
 import { Chapter } from '../entities/chapter';
 import { API_SERVER } from '../app.constants';
+import {Formation} from '../entities/formation';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,10 +25,13 @@ export class ChapterService {
    */
   getListChapters(id: number): Observable<Chapter[]> {
     const url = `${API_SERVER.chapters}/${id}`;
-    return this.http.get<Chapter[]>(url)
-      .map(result => result['res'])
+    let chapters;
+    chapters = this.http.get<Chapter[]>(url)
+      .map(result => result['chapters'])
       .pipe(catchError(this.handleError('getListChapters', []))
       );
+    console.log(chapters);
+    return chapters;
   }
 
   /**
@@ -40,6 +44,43 @@ export class ChapterService {
     return this.http.get<Chapter>(url)
       .map(result => result['res'])
       .pipe(catchError(this.handleError<Chapter>(`getChapter id=${id}`)));
+  }
+
+  /**
+   * Put: Update the chapter on the server
+   * @param {Chapter} chapter
+   * @returns {Observable<Chapter>}
+   */
+  updateChapter (chapter: Chapter): Observable<Chapter> {
+    return this.http.put<Chapter>(API_SERVER.chapter, chapter, httpOptions)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError<Chapter>('updateChapter'))
+      );
+  }
+
+  /**
+   * Post: add a new chapter to a formation on the server
+   * @param {Chapter} chapter
+   * @param {number} idFormation
+   * @returns {Observable<Chapter>}
+   */
+  addChapter (chapter: Chapter, idFormation: number): Observable<Chapter> {
+    const url = `${API_SERVER.formation}/${idFormation}/addChapter`;
+    return this.http.post<Chapter>(url, chapter, httpOptions)
+      .map(result => result['res'])
+      .pipe(catchError(this.handleError<Chapter>('addChapter'))
+      );
+  }
+
+  /**
+   * Delete: delete the chapter on the server
+   * @param {Chapter} chapter
+   * @returns {Observable<Chapter>}
+   */
+  deleteChapter(chapter: Chapter): Observable<Chapter> {
+    const url = `${API_SERVER.chapter}/${chapter.id}`;
+    return this.http.delete<Chapter>(url)
+      .pipe(catchError(this.handleError<Chapter>(`deleteChapter id=${chapter.id}`)));
   }
 
   /**
