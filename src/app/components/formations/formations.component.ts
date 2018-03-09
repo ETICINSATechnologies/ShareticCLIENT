@@ -26,17 +26,6 @@ export class FormationsComponent implements OnInit {
         this.formationService.getListFormations().subscribe(formations => this.formations = formations);
     }
 
-    add(name: string): void {
-        name = name.trim();
-        if (!name) {
-            return;
-        }
-        this.formationService.addFormation({id: null, name: name, icon: '../assets/angular-logo.jpg'} as Formation)
-            .subscribe(formation => {
-                this.formations.push(formation);
-            });
-    }
-
     delete(formation: Formation): void {
         this.formations = this.formations.filter(f => f !== formation);
         this.formationService.deleteFormation(formation).subscribe();

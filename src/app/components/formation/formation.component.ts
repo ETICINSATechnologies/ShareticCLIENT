@@ -14,14 +14,31 @@ import {ChapterService} from '../../services/chapter.service';
 })
 export class FormationComponent implements OnInit {
 
-  formation: Formation = {
-    id: 1,
-    name: '',
-    icon: '',
-    description: ''
-  };
-
   chapters: Chapter [] = [];
+
+  formation: Formation = {
+    id: -1,
+    name: 'Formation',
+    description: '',
+    icon: {
+      path: '',
+      format: ''
+    },
+    pole: {
+      id: -1,
+      name: ''
+    },
+    author: {
+      id: -1,
+      firstname: '',
+      lastname: '',
+      icon: {
+        path: '',
+        format: ''
+      },
+    },
+    chapters: this.chapters
+  };
 
   constructor(private formationService: FormationService, private authService: AuthService,
               private route: ActivatedRoute, private location: Location, private  chapterService: ChapterService) {

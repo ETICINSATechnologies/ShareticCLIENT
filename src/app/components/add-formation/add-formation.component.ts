@@ -37,9 +37,26 @@ export class AddFormationComponent implements OnInit {
    */
   formation: Formation = {
     id: -1,
-    name: '',
-    icon: '',
+    name: 'Formation',
     description: '',
+    icon: {
+      path: '',
+      format: ''
+    },
+    pole: {
+      id: -1,
+      name: ''
+    },
+    author: {
+      id: -1,
+      firstname: '',
+      lastname: '',
+      icon: {
+        path: '',
+        format: ''
+      },
+    },
+    chapters: this.chapters
   };
 
   /**
