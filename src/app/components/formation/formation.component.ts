@@ -47,19 +47,13 @@ export class FormationComponent implements OnInit {
   ngOnInit() {
     const idFormation = +this.route.snapshot.paramMap.get('id');
     this.getFormation(idFormation);
-    this.getChapters(idFormation);
   }
 
   getFormation(id: number): void {
     this.formationService.getFormation(id).subscribe(formation => {
         this.formation = formation;
+        this.chapters = this.formation.chapters;
       });
-  }
-
-  getChapters(id: number): void {
-    this.chapterService.getListChapters(id).subscribe(chapters => {
-      this.chapters = chapters;
-    });
   }
 
   addNewChapter(): void {

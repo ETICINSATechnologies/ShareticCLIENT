@@ -25,7 +25,6 @@ export class AddFormationComponent implements OnInit {
     name: 'Chapitre',
     position: 0,
     description: '',
-    draft: '',
     icon: {
       path: 'default',
       format: 'png'
