@@ -20,6 +20,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormationComponent } from './components/add-formation/add-formation.component';
 import { ChapitreComponent } from './components/chapter/chapter.component';
 import {ChapterService} from './services/chapter.service';
+import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ChapterService} from './services/chapter.service';
     ProfileComponent,
     AddFormationComponent,
     FormationComponent,
-    ChapitreComponent
+    ChapitreComponent,
+    AddChapterComponent
   ],
   imports: [
     BrowserModule,
