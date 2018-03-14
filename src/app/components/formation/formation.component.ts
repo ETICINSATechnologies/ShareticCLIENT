@@ -14,14 +14,31 @@ import {ChapterService} from '../../services/chapter.service';
 })
 export class FormationComponent implements OnInit {
 
-  formation: Formation = {
-    id: 1,
-    name: '',
-    icon: '',
-    description: ''
-  };
-
   chapters: Chapter [] = [];
+
+  formation: Formation = {
+    id: -1,
+    name: 'Formation',
+    description: '',
+    icon: {
+      path: '',
+      format: ''
+    },
+    pole: {
+      id: -1,
+      name: ''
+    },
+    author: {
+      id: -1,
+      firstname: '',
+      lastname: '',
+      icon: {
+        path: '',
+        format: ''
+      },
+    },
+    chapters: this.chapters
+  };
 
   constructor(private formationService: FormationService, private authService: AuthService,
               private route: ActivatedRoute, private location: Location, private  chapterService: ChapterService) {
@@ -30,19 +47,13 @@ export class FormationComponent implements OnInit {
   ngOnInit() {
     const idFormation = +this.route.snapshot.paramMap.get('id');
     this.getFormation(idFormation);
-    this.getChapters(idFormation);
   }
 
   getFormation(id: number): void {
     this.formationService.getFormation(id).subscribe(formation => {
         this.formation = formation;
+        this.chapters = this.formation.chapters;
       });
-  }
-
-  getChapters(id: number): void {
-    this.chapterService.getListChapters(id).subscribe(chapters => {
-      this.chapters = chapters;
-    });
   }
 
   addNewChapter(): void {

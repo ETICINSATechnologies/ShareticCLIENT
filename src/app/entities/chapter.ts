@@ -3,7 +3,6 @@ export class Chapter {
     position: number;
     name: string;
     description: string;
-    draft: string;
     icon: {
       path: string;
       format: string

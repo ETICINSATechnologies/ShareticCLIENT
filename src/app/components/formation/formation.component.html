@@ -1,47 +1,46 @@
 <img src={{formation.icon}}/><h1>{{formation.name}}</h1>
 <table class="ui celled padded table">
-    <thead>
-        <tr>
-            <th class="single line">Chapitre</th>
-            <th>Accèder aux QCM</th>
-            <th>Difficulté</th>
-            <th>Resume du chapitre</th>
-        </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let chapter of chapters">
-            <td>
-                <a routerLink="../chapter/">
-                    <h3 class="ui center aligned header">{{chapter.name}}</h3>
-                </a>
-            </td>
-            <td class="single line">
-                <!-- Lien vers QCM -->
-            </td>
-            <td>
-              {{chapter.description}}
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+  <tr>
+    <th class="single line">Chapitre</th>
+    <th>Accèder aux QCM</th>
+    <th>Resume du chapitre</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let chapter of chapters">
+    <td>
+      <a routerLink="../chapter/">
+        <h3 class="ui center aligned header">{{chapter.name}}</h3>
+      </a>
+    </td>
+    <td class="single line">
+      <!-- Lien vers QCM -->
+    </td>
+    <td>
+      {{chapter.description}}
+    </td>
+  </tr>
+  </tbody>
 </table>
 
 
 <div class="ui grid">
-    <div class="four column row">
-        <div class="left floated column">
-            <div class="ui buttons">
-                <button (click)="goBack()" class="ui left floated button">
-                    <i class="left chevron icon"></i>
-                    Précédent
-                </button>
-            </div>
-    </div>
-      <div class="right floated column">
-        <div class="ui buttons">
-          <button (click)="addNewChapter()" class="positive ui button">
-            Ajouter
-          </button>
-        </div>
+  <div class="four column row">
+    <div class="left floated column">
+      <div class="ui buttons">
+        <button (click)="goBack()" class="ui left floated button">
+          <i class="left chevron icon"></i>
+          Précédent
+        </button>
       </div>
     </div>
+    <div class="right floated column">
+      <div class="ui buttons">
+        <button (click)="addNewChapter()" class="positive ui button">
+          Ajouter
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
