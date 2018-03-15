@@ -1,18 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChapitreComponent } from './chapter.component';
+import { ChapterComponent } from './chapter.component';
 import {FormationService} from '../../services/formation.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from '../../services/auth.service';
 import {RouterTestingModule} from '@angular/router/testing';
 
 describe('ChapitreComponent', () => {
-  let component: ChapitreComponent;
-  let fixture: ComponentFixture<ChapitreComponent>;
+  let component: ChapterComponent;
+  let fixture: ComponentFixture<ChapterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChapitreComponent ],
+      declarations: [ ChapterComponent ],
       providers: [FormationService, AuthService],
       imports: [HttpClientModule, RouterTestingModule]
     })
@@ -20,7 +20,7 @@ describe('ChapitreComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChapitreComponent);
+    fixture = TestBed.createComponent(ChapterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
