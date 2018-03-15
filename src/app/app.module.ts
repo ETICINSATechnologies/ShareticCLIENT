@@ -18,7 +18,7 @@ import {AuthService} from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormationComponent } from './components/add-formation/add-formation.component';
-import { ChapitreComponent } from './components/chapter/chapter.component';
+import { ChapterComponent } from './components/chapter/chapter.component';
 import {ChapterService} from './services/chapter.service';
 import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
 
@@ -32,7 +32,7 @@ import { AddChapterComponent } from './components/add-chapter/add-chapter.compon
     ProfileComponent,
     AddFormationComponent,
     FormationComponent,
-    ChapitreComponent,
+    ChapterComponent,
     AddChapterComponent
   ],
   imports: [
@@ -43,9 +43,9 @@ import { AddChapterComponent } from './components/add-chapter/add-chapter.compon
       {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'addFormation', component: AddFormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
-      {path: 'addChapter/:formationId/:chapterId', component: AddChapterComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'addChapter/:idFormation/:idChapter', component: AddChapterComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formation/:id', component: FormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
-      {path: 'chapitre/:id', component: ChapitreComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'chapter/:id', component: ChapterComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
