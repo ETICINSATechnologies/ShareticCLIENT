@@ -24,7 +24,7 @@
         <div class="ui transparent fluid input">
           <input [(ngModel)]="item.name" type="text" placeholder="Entrez un titre de chapitre">
 
-          <button (click)="editChapter(formation, item)" class="ui  button">Editer</button>
+          <button (click)="editChapter(formation, item)" class="ui button" suiPopup popupText="Vous ne pouvez pas éditer le chapitre sans enregistrer la formation" >Editer</button>
           <button (click)="deleteChapter(item)" class="ui red button">X</button>
         </div>
       </li>

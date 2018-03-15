@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-add-chapter',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddChapterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const idFormation = +this.route.snapshot.paramMap.get('idFormation');
+    const idChapter = +this.route.snapshot.paramMap.get('idChapter');
+    console.log('formation:' + idFormation);
+    console.log('chapter:' + idChapter);
   }
 
 }

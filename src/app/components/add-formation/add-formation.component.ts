@@ -5,6 +5,7 @@ import {Formation} from '../../entities/formation';
 import {Location} from '@angular/common';
 import {ChapterService} from '../../services/chapter.service';
 import {Router} from '@angular/router';
+import {IPopup} from 'ng2-semantic-ui';
 
 @Component({
   selector: 'app-add-formation',
@@ -120,6 +121,8 @@ export class AddFormationComponent implements OnInit {
   }
 
   editChapter(formation: Formation, chapter: Chapter) {
-    this.router.navigate(['../addChapter/', formation.id, chapter.id]);
+    if (chapter.id !== -1) {
+      this.router.navigate(['../addChapter/', formation.id, chapter.id]);
+    }
   }
 }
