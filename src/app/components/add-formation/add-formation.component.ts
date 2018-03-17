@@ -15,7 +15,7 @@ export class AddFormationComponent implements OnInit {
   /**
    * List of formation's chapters .
    */
-  chapters: Chapter []= [];
+  chapters: Chapter [] = [];
 
   /**
    * Empty chapter, id is set to -1 until it is saved and given an id by the server.
@@ -108,7 +108,7 @@ export class AddFormationComponent implements OnInit {
   deleteChapter(chapter: Chapter) {
     if (chapter.id === -1) {
       this.chapters.splice(this.chapters.indexOf(chapter), 1);
-    }else {
+    } else {
       this.chapterService.deleteChapter(chapter).subscribe( c =>
         this.chapters.splice(this.chapters.indexOf(chapter), 1));
     }
