@@ -1,3 +1,13 @@
-<p>
-  add-chapter works!
-</p>
+<h1 style="text-align:center">Créez votre Chapitre</h1>
+
+<div class="ui form">
+  <label> Titre de la formation</label>
+  <div class="input">
+    <input  [(ngModel)]="chapter.name" type="text">
+  </div>
+  <br>
+  <label> Description</label>
+  <div class="field">
+    <textarea [(ngModel)]="chapter.description" placeholder="Entrez la description du chapitre" rows="2"></textarea>
+  </div>
+</div>
