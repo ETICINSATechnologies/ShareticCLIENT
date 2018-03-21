@@ -5,6 +5,7 @@ import { SuiModule } from 'ng2-semantic-ui';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2DragDropModule } from 'ng2-drag-drop';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { AppComponent } from './app.component';
 import { FormationsComponent } from './components/formations/formations.component';
@@ -50,7 +51,9 @@ import { AddChapterComponent } from './components/add-chapter/add-chapter.compon
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
     HttpClientModule,
-    Ng2DragDropModule.forRoot()
+    Ng2DragDropModule.forRoot(),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [ FormationService, AuthGuard , LoginService, AuthService, ChapterService],
   bootstrap: [AppComponent]
