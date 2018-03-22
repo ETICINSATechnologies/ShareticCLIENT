@@ -11,7 +11,17 @@ import {Location} from '@angular/common';
 })
 export class AddChapterComponent implements OnInit {
 
-  chapter: Chapter;
+  chapter: Chapter = {
+    id: -1,
+    name: '',
+    position: 0,
+    description: '',
+    content: '',
+    icon: {
+      path: '',
+      format: ''
+    }
+  };
 
   constructor(private route: ActivatedRoute, private chapterService: ChapterService,
               private location: Location ) { }
@@ -19,8 +29,6 @@ export class AddChapterComponent implements OnInit {
   ngOnInit() {
     const idFormation = +this.route.snapshot.paramMap.get('idFormation');
     const idChapter = +this.route.snapshot.paramMap.get('idChapter');
-    console.log('formation:' + idFormation);
-    console.log('chapter:' + idChapter);
     this.getChapter(idChapter);
   }
 
