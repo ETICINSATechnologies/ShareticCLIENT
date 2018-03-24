@@ -2,6 +2,8 @@
 [![codecov](https://codecov.io/gh/ETICINSATechnologies/ShareticCLIENT/branch/master/graph/badge.svg)](https://codecov.io/gh/ETICINSATechnologies/ShareticCLIENT)
 
 # Sharetic
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/ETICINSATechnologies/ShareticCLIENT.svg)](https://greenkeeper.io/)
 An online open source formation platform (MOOC-like) for Junior-Enterprises.
 
 **Frontend** : Angular 4 (Typescript/Javascript framework)
