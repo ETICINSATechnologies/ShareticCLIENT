@@ -8,11 +8,11 @@ import { Location } from '@angular/common';
 
 
 @Component({
-  selector: 'app-chapitre',
+  selector: 'app-chapter',
   templateUrl: './chapter.component.html',
   styleUrls: ['./chapter.component.css']
 })
-export class ChapitreComponent implements OnInit {
+export class ChapterComponent implements OnInit {
 
     formations: Formation[];
     formationName: string;

@@ -1,0 +1,36 @@
+<h1 style="text-align:center">Créez votre Chapitre</h1>
+
+<div class="ui form">
+  <label> Titre de la formation</label>
+  <div class="input">
+    <input  [(ngModel)]="chapter.name" type="text">
+  </div>
+  <br>
+  <label> Description</label>
+  <div class="field">
+    <textarea [(ngModel)]="chapter.description" placeholder="Entrez la description du chapitre" rows="2"></textarea>
+  </div>
+  <br>
+  <label> Contenu</label>
+  <textarea [(ngModel)]="chapter.content" [froalaEditor]></textarea>
+</div>
+<br>
+<div class="ui grid">
+  <div class="five column row">
+    <div class="left floated column">
+      <div class="ui buttons">
+        <button (click)="goBack()" class="ui left floated button" suiPopup popupText="Le chapitre ne sera pas sauvegardé.">
+          <i class="left chevron icon"></i>Précédent
+        </button>
+      </div>
+    </div>
+    <div class="right floated column">
+      <div class="ui buttons">
+        <button (click)="saveChapter()" class="positive ui button">
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

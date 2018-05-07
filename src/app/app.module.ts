@@ -5,6 +5,7 @@ import { SuiModule } from 'ng2-semantic-ui';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2DragDropModule } from 'ng2-drag-drop';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { AppComponent } from './app.component';
 import { FormationsComponent } from './components/formations/formations.component';
@@ -18,8 +19,9 @@ import {AuthService} from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormationComponent } from './components/add-formation/add-formation.component';
-import { ChapitreComponent } from './components/chapter/chapter.component';
+import { ChapterComponent } from './components/chapter/chapter.component';
 import {ChapterService} from './services/chapter.service';
+import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import {ChapterService} from './services/chapter.service';
     ProfileComponent,
     AddFormationComponent,
     FormationComponent,
-    ChapitreComponent
+    ChapterComponent,
+    AddChapterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,13 +44,16 @@ import {ChapterService} from './services/chapter.service';
       {path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formations', component: FormationsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'addFormation', component: AddFormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'addChapter/:idFormation/:idChapter', component: AddChapterComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'formation/:id', component: FormationComponent, pathMatch: 'full', canActivate: [AuthGuard]},
-      {path: 'chapitre/:id', component: ChapitreComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+      {path: 'chapter/:id', component: ChapterComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent, pathMatch: 'full'}
     ]),
     HttpClientModule,
-    Ng2DragDropModule.forRoot()
+    Ng2DragDropModule.forRoot(),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [ FormationService, AuthGuard , LoginService, AuthService, ChapterService],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import {FormationService} from '../../services/formation.service';
 import {Formation} from '../../entities/formation';
 import {Location} from '@angular/common';
 import {ChapterService} from '../../services/chapter.service';
+import {Router} from '@angular/router';
+import {IPopup} from 'ng2-semantic-ui';
 
 @Component({
   selector: 'app-add-formation',
@@ -25,6 +27,7 @@ export class AddFormationComponent implements OnInit {
     name: 'Chapitre',
     position: 0,
     description: '',
+    content: '',
     icon: {
       path: 'default',
       format: 'png'
@@ -66,7 +69,7 @@ export class AddFormationComponent implements OnInit {
   ];
 
   constructor( private formationService: FormationService, private chapterService: ChapterService,
-               private location: Location) { }
+               private location: Location, private router: Router) { }
 
   ngOnInit() {
   }
@@ -116,5 +119,11 @@ export class AddFormationComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  editChapter(formation: Formation, chapter: Chapter) {
+    if (chapter.id !== -1) {
+      this.router.navigate(['../addChapter/', formation.id, chapter.id]);
+    }
   }
 }
