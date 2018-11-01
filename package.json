@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^5.2.8",
     "@angular/router": "^5.2.8",
     "angular-froala-wysiwyg": "^2.7.6",
-    "angular-in-memory-web-api": "^0.5.3",
+    "angular-in-memory-web-api": "^0.7.0",
     "core-js": "^2.5.3",
     "font-awesome": "^4.7.0",
     "ng2-drag-drop": "^3.0.2",
