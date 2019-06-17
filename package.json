@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^5.2.8",
     "@angular/platform-browser-dynamic": "^5.2.8",
     "@angular/router": "^5.2.8",
-    "angular-froala-wysiwyg": "^2.7.6",
+    "angular-froala-wysiwyg": "^3.0.1",
     "angular-in-memory-web-api": "^0.5.3",
     "core-js": "^2.5.3",
     "font-awesome": "^4.7.0",
