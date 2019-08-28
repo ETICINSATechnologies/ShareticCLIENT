@@ -31,7 +31,7 @@
     "zone.js": "git://github.com/JiaLiPassion/zone.js#jasmine-dist"
   },
   "devDependencies": {
-    "@angular/cli": "1.7.4",
+    "@angular/cli": "8.3.1",
     "@angular/compiler-cli": "^5.2.8",
     "@angular/language-service": "^6.0.0",
     "@types/jasmine": "~2.8.6",
